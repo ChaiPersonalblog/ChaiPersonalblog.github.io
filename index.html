@@ -1,0 +1,321 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>沐风の学习~交流的地方 - 沐风の学习~交流的地方</title><meta name="description" content="不是只会写业务代码的前端攻城狮！"><meta name="keywords" content="Vue,面试,CSDN,ES6,Element,前端"><meta name="author" content="沐风,455447866@qq.com"><meta name="copyright" content="沐风"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/index.ico"><link rel="canonical" href="https://chaipersonalblog.github.io/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta property="og:type" content="website"><meta property="og:title" content="沐风の学习~交流的地方"><meta property="og:url" content="https://chaipersonalblog.github.io/"><meta property="og:site_name" content="沐风の学习~交流的地方"><meta property="og:description" content="不是只会写业务代码的前端攻城狮！"><meta property="og:image" content="https://chaipersonalblog.github.io/img/tximg.gif"><meta property="article:published_time" content="2021-06-07T10:37:27.919Z"><meta property="article:modified_time" content="2021-06-07T10:37:27.919Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.css"><script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.10.5/dist/instantsearch.min.js" defer></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"M32WSU7712","apiKey":"d1d90b0e1ff65607d1289e4d1c42a505","indexName":"blog_chai","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容:${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: {"text":"I,LOVE,YOU","fontSize":"15px"},
+  medium_zoom: true,
+  fancybox: true,
+  Snackbar: {"bookmark":{"message_prev":"按","message_next":"键将本页加入书签"},"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false,
+  postUpdate: '2021-06-07 18:37:27'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><div class="aplayer" data-id="2873379741" data-server="netease" data-type="playlist" data-fixed="true" data-listFolded="false" data-order="random" data-preload="none"></div><link rel="stylesheet" href="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.css"><script src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@master/Hexo/css/flink.min.css"></head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/img/tximg.gif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">22</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">4</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/box/"><i class="fa-fw fab fa-xbox"></i><span> 聚宝盒</span></a></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page" href="/home/"><i class="fa-fw fab fa-phoenix-framework"></i><span> 主页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw far fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="full_page" id="page-header" style="background-image: url(https://cdn.jsdelivr.net/gh/HCLonely/hclonely.github.io@1.3.9/img/Butterfly/index.webp)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">沐风の学习~交流的地方</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fas fa-list"></i><span> 媒体</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/bangumis/"><i class="fa-fw fab fa-youtube"></i><span> 番剧</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> 电影</span></a></li><li><a class="site-page" href="/books/"><i class="fa-fw fas fa-book"></i><span> 书单</span></a></li><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/box/"><i class="fa-fw fab fa-xbox"></i><span> 聚宝盒</span></a></div><div class="menus_item"><a class="site-page" href="/talk/"><i class="fa-fw far fa-comment"></i><span> 微语</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down menus-expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/gallery/"><i class="fa-fw far fa-image"></i><span> 相册</span></a></li><li><a class="site-page" href="/home/"><i class="fa-fw fab fa-phoenix-framework"></i><span> 主页</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/contact/"><i class="fa-fw far fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">沐风の学习~交流的地方</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/chaipersonalblog" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:455447866@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/36824/" title="ES6 学习总结">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/547114.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ES6 学习总结"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/36824/" title="ES6 学习总结">ES6 学习总结</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:56:15"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/JavaScript/">JavaScript</a></span></div><div class="content">ES6
+
+ECMAScript 6（简称ES6）是于2015年6月正式发布的JavaScript语言的标准
+目标是使得JavaScript语言可以用来编写复杂的大型应用程序，成为企业级开发语言
+ES6 主要是为了解决 ES5 的先天不足，增加部分特性和功能
+
+
+let与const
+函数作用域 VS 块作用域
+ES5只有全局作用域和函数作用域，没有块级作用域，常用的做法是使用闭包。
+let和const是块级作用域，变量只能在let和const命令所在的代码块有效。
+12for( var i = 0 ; i &lt; 3 ; i++ )&#123; console.log(i) &#125;; console.log(i); // 0 1 2 3for( let i = 0 ; i &lt; 3 ; i++ )&#123; console.log(i) &#125;; console.log(i); // 0 1 2 ReferenceError
+
+变量提升 VS 暂时性死区
+var存在变量提升，let和const存在暂时性死区。
+12console.log(b); var b = "ba ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/42207/" title="whistle网络抓包">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/whistle.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="whistle网络抓包"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/42207/" title="whistle网络抓包">whistle网络抓包</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a></span></div><div class="content">手机设置代理连接好指定的wifi后，点击那个wifi里的设置，将「代理」那一项，设置为手动，然后输入ip（电脑上的ip）、端口号（8899）。然后就可以通过电脑上的whistle工具，查看手机的网页请求。
+注意，要保证手机和电脑在同一个网络下。
+捕获和拦截https请求whistle安装证书后，可以拦截 https 请求。但是，我现在又不想拦截https请求了，该怎么卸载证书呢？
+我发现，证书无法卸载，正确的操作是：
+
+上图中，把红框部分，去掉勾选，就不捕获https了。谢谢azh童鞋。
+参考链接：
+
+Android 手机如何设置http代理？
+
+使用 Whistle 对 iOS HTTPS 进行抓包
+
+
+移动端调试神器:eruda
+手机连接代理时，如何看console.log的日志信息?
+
+
+现在，代码里有console.log，如果是在电脑浏览器上看，可以直接在控制台查看console.log的内容。但是，如果手机连接代理，在手机上打开网页的话，要怎么查看console.log的内容呢？具体做法如下：
+
+（1）在 whistle中，新建一个名叫Eruda H5的代理，代理中的内容是 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/4132/" title="12-HTML基础回顾">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/exploress.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="12-HTML基础回顾"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/4132/" title="12-HTML基础回顾">12-HTML基础回顾</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">本文主要内容
+html 的常见元素
+
+html 元素的分类
+
+html 元素的嵌套关系
+
+html 元素的默认样式和 CSS Reset
+
+html 常见面试题
+
+
+html 的常见元素html 的常见元素主要分为两类：head 区域的元素、body 区域的元素。下面来分别介绍。
+1、head 区域的 html 元素
+head 区域的 html 元素，不会在页面上留下直接的内容。
+
+
+meta
+
+title
+
+style
+
+link
+
+script
+
+base
+
+
+base元素的介绍：
+1&lt;base href="/"&gt;
+
+base 标签用于指定基础的路径。指定之后，所有的 a 链接都是以这个路径为基准。
+2、html 元素（body 区域）
+body 区域的 html 元素，会直接出现在页面上。
+
+
+div、section、article、aside、header、footer
+
+p
+
+span、em、strong
+
+表格元素：table、thead、tbody、tr、td
+
+列表元素：ul、ol、dl、dt、dd
+
+a
+
+表单元素：form、input、select、te ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/520520/" title="Hello World">     <img class="post_bg" data-src="https://cdn.jsdelivr.net/gh/HCLonely/hclonely.github.io/img/Butterfly/006.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/520520/" title="Hello World">Hello World</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/blog/">blog</a></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/52629/" title="10-HTML5详解（二）">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/247671.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="10-HTML5详解（二）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/52629/" title="10-HTML5详解（二）">10-HTML5详解（二）</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">本文主要内容
+拖拽
+
+历史
+
+地理位置
+
+全屏
+
+
+拖拽
+如上图所示，我们可以拖拽博客园网站里的图片和超链接。
+在HTML5的规范中，我们可以通过为元素增加 draggable=&quot;true&quot; 来设置此元素是否可以进行拖拽操作，其中图片、链接默认是开启拖拽的。
+1、拖拽元素页面中设置了 draggable=&quot;true&quot; 属性的元素。
+举例如下：
+1234567891011121314151617181920&lt;!DOCTYPE html&gt;&lt;html lang="en"&gt;&lt;head&gt;    &lt;meta charset="UTF-8"&gt;    &lt;title&gt;Title&lt;/title&gt;    &lt;link rel="stylesheet" href="css/font-awesome.min.css"&gt;    &lt;style&gt;    .box1&#123;        width: 200px;        height: 200px;        backg ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/3388/" title="11-HTML5详解（三）">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/289586.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="11-HTML5详解（三）"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/3388/" title="11-HTML5详解（三）">11-HTML5详解（三）</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">Web 存储随着互联网的快速发展，基于网页的应用越来越普遍，同时也变的越来越复杂，为了满足各种各样的需求，会经常性在本地存储大量的数据，传统方式我们以document.cookie来进行存储的，但是由于其存储大小只有4k左右，并且解析也相当的复杂，给开发带来诸多不便，HTML5规范则提出解决方案。
+H5 中有两种存储的方式1、window.sessionStorage 会话存储：
+
+保存在内存中。
+
+生命周期为关闭浏览器窗口。也就是说，当窗口关闭时数据销毁。
+
+在同一个窗口下数据可以共享。
+
+
+2、window.localStorage 本地存储：
+
+有可能保存在浏览器内存里，有可能在硬盘里。
+
+永久生效，除非手动删除（比如清理垃圾的时候）。
+
+可以多窗口共享。
+
+
+Web 存储的特性（1）设置、读取方便。
+（2）容量较大，sessionStorage 约5M、localStorage 约20M。
+（3）只能存储字符串，可以将对象 JSON.stringify() 编码后存储。
+常见 API设置存储内容：
+1setItem(key, value);
+
+PS：可以新增一个 item，也可 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/8556/" title="08-HTML5详解">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/167699.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="08-HTML5详解"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/8556/" title="08-HTML5详解">08-HTML5详解</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">HTML5的介绍Web 技术发展时间线
+1991 HTML
+
+
+1994 HTML2
+
+1996 CSS1 + JavaScript
+
+1997 HTML4
+
+1998 CSS2
+
+2000 XHTML1（严格的html）
+
+2002 Tableless Web Design（表格布局）
+
+2005 AJAX
+
+2009 HTML5
+
+2014 HTML5 Finalized
+
+
+2002年的表格布局逐渐被淘汰，是因为：表格是用来承载数据的，并不是用来划分网页结构的。
+2009年就已经推出了HTML5的草案，但直到2014年才有定稿，是因为有移动端的推动。
+H5草案的前身是叫：Web Application，最早是由WHATWG这个组织在2004年提出的。
+2007年被 W3C 组织接纳，并在 2008-01-22 发布 HTML5 的第一个草案。
+什么是 HTML5HTML5并不仅仅只是做为HTML标记语言的一个最新版本，更重要的是它制定了Web应用开发的一系列标准，成为第一个将Web做为应用开发平台的HTML语言。
+HTML5定义了一系列新元素，如新语义标签、智能表单、多媒体标签等 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/42620/" title="09-HTML5举例：简单的视频播放器">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/243971.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="09-HTML5举例：简单的视频播放器"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/42620/" title="09-HTML5举例：简单的视频播放器">09-HTML5举例：简单的视频播放器</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:17"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">我们采用 Bootstrap 网站的图标字体，作为播放器的按钮图标。
+index.html的代码如下：
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491501511521531541551561571581591601611621631641651661671681691701711721731741751761771781791801811821831841851 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/posts/10161/" title="chrome浏览器">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/google_chrome.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="chrome浏览器"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/10161/" title="chrome浏览器">chrome浏览器</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:16"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/">前端工具</a></span></div><div class="content">控制台的使用控制台查看源码控制台的Sources标签可以查看源码。按住快捷键「cmd + P」，可以根据文件名查找源码文件。
+其他show user agent shadow DOM
+
+把上图中的红框部分打钩。
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/posts/782/" title="06-HTML标签：图片标签">     <img class="post_bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/354939.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="06-HTML标签：图片标签"></a></div><div class="recent-post-info"><a class="article-title" href="/posts/782/" title="06-HTML标签：图片标签">06-HTML标签：图片标签</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-29 08:51:16"><i class="far fa-calendar-alt"></i>2021-04-29</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/categories/HTML%E7%9F%A5%E8%AF%86/">HTML知识</a></span></div><div class="content">img标签介绍介绍img: 英文全称 image（图像），代表的是一张图片。
+如果要想在网页中显示图像，就可以使用img 标签，它是一个单标签。语法如下：
+1&lt;img src="图片的URL" /&gt;
+
+能插入的图片类型
+能够插入的图片类型是：jpg(jpeg)、gif、png、bmp等。
+
+不能往网页中插入的图片格式是：psd、ai等。
+
+
+HTML页面不是直接插入图片，而是插入图片的引用地址，所以要先把图片上传到服务器上。
+img标签的src属性这里涉及到图片的一个属性：
+
+src属性：指图片的路径。英文名称 source。
+
+在写图片的路径时，有两种写法：相对路径、绝对路径
+写法一：图片的相对路径相对当前页面所在的路径。两个标记 . 和 .. 分表代表当前目录和上一层目录。
+举例1：
+123456&lt;!-- 当前目录中的图片 --&gt;&lt;img src="2.jpg"&gt;&lt;img src=".\2.jpg"&gt;&lt;!-- 上一级目录中的图片 --&gt;&lt;img src="..\2.jpg"&gt;
+
+相对路径不会出现这种情况：
+1a ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/tximg.gif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">沐风</div><div class="author-info__description">不是只会写业务代码的前端攻城狮！</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives"><div class="headline">文章</div><div class="length_num">22</div></a></div><div class="card-info-data-item is-center">      <a href="/tags"><div class="headline">标签</div><div class="length_num">8</div></a></div><div class="card-info-data-item is-center">     <a href="/categories"><div class="headline">分类</div><div class="length_num">4</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" type="button" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/chaipersonalblog" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:455447866@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎大家来到这里交流学习！！！<img src="https://cdn.jsdelivr.net/gh/lete114/CDN/Use/my_bg.gif"></div></div></div><div class="card-widget card-pixiv"><div class="card-content"><div class="item-headline"><i class="fa fa-image" aria-hidden="true"></i><span>Pixiv日榜Top50</span><iframe src="https://cloud.mokeyjay.com/pixiv" frameborder="0" style="width:99%;height:380px;margin:0;"></iframe></div></div></div><div class="card-widget card-calendar"><div class="card-content"><div class="item-headline"><i class="far fa-calendar-alt" aria-hidden="true"></i><span>写作日历</span></div><div class="widget-wrap"></div><div class="widget" id="calendar"></div></div></div><div class="card-widget card-map"><div class="card-content"><div class="item-headline"><i class="fa fa-globe-asia" aria-hidden="true"></i><span>访客地图</span></div><script id="clstr_globe" type="text/javascript" defer="defer" src="//cdn.clustrmaps.com/globe.js?d=fVQb75D6mjY-w9gWhFtj294byIhuYzIJLyUZYhnjYSo"></script></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/posts/36824/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/547114.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="ES6 学习总结" alt="ES6 学习总结"/></div><div class="aside-post-title"><div class="aside-post_title" href="/posts/36824/" title="ES6 学习总结">ES6 学习总结</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-29 08:56:15">2021-04-29</time></div></a></div><div class="aside-recent-post"><a href="/posts/42207/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/whistle.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="whistle网络抓包" alt="whistle网络抓包"/></div><div class="aside-post-title"><div class="aside-post_title" href="/posts/42207/" title="whistle网络抓包">whistle网络抓包</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-29 08:51:17">2021-04-29</time></div></a></div><div class="aside-recent-post"><a href="/posts/4132/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/exploress.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="12-HTML基础回顾" alt="12-HTML基础回顾"/></div><div class="aside-post-title"><div class="aside-post_title" href="/posts/4132/" title="12-HTML基础回顾">12-HTML基础回顾</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-29 08:51:17">2021-04-29</time></div></a></div><div class="aside-recent-post"><a href="/posts/520520/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://cdn.jsdelivr.net/gh/HCLonely/hclonely.github.io/img/Butterfly/006.webp" onerror="this.onerror=null;this.src='/img/404.jpg'" title="Hello World" alt="Hello World"/></div><div class="aside-post-title"><div class="aside-post_title" href="/posts/520520/" title="Hello World">Hello World</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-29 08:51:17">2021-04-29</time></div></a></div><div class="aside-recent-post"><a href="/posts/52629/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://raw.githubusercontent.com/ChaiPersonalblog/blogImg/main/247671.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" title="10-HTML5详解（二）" alt="10-HTML5详解（二）"/></div><div class="aside-post-title"><div class="aside-post_title" href="/posts/52629/" title="10-HTML5详解（二）">10-HTML5详解（二）</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-29 08:51:17">2021-04-29</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/HTML%E7%9F%A5%E8%AF%86/"><span class="card-category-list-name">HTML知识</span><span class="card-category-list-count">12</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaScript/"><span class="card-category-list-name">JavaScript</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/blog/"><span class="card-category-list-name">blog</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">前端工具</span><span class="card-category-list-count">8</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href='/tags/ES6/' style='font-size:18px; color:rgb(190, 36, 150)'>ES6</a><a href='/tags/HTML/' style='font-size:17px; color:rgb(183, 121, 136)'>HTML</a><a href='/tags/JavaScript/' style='font-size:21px; color:rgb(181, 156, 112)'>JavaScript</a><a href='/tags/blog/' style='font-size:18px; color:rgb(114, 78, 54)'>blog</a><a href='/tags/%E5%89%8D%E7%AB%AF%E5%B7%A5%E5%85%B7/' style='font-size:20px; color:rgb(7, 64, 71)'>前端工具</a><a href='/tags/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/' style='font-size:21px; color:rgb(69, 54, 75)'>基础知识</a><a href='/tags/%E6%80%BB%E7%BB%93/' style='font-size:19px; color:rgb(19, 23, 59)'>总结</a><a href='/tags/%E8%BD%AC%E8%BD%BD/' style='font-size:21px; color:rgb(130, 103, 130)'>转载</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">22</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">22</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021  <i id="heartbeat" class="fa fas fa-heartbeat"></i> 沐风</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div></div><head><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/HCLonely/images@master/others/heartbeat.min.css"><meta name="generator" content="Hexo 4.2.0"></head></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="algolia-search"><div class="search-dialog__title" id="algolia-search-title">Algolia</div><div id="algolia-input-panel"><div id="algolia-search-input"></div></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-stats"></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div class="search-mask"></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script defer id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><script src="/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/js/third-party/click_heart.js"></script><script src="/js/third-party/ClickShowText.js"></script><script src="/js/search/algolia.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
+  loadScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js',function () {
+      var subtitleEffect = true
+      jinrishici.load(function (result) {
+        if (subtitleEffect) {
+          var sub = "学如逆水行舟&#44;不进则退,Learning is like rowing upstream, not to advance is to fall back".length == 0 ? new Array() : "学如逆水行舟&#44;不进则退,Learning is like rowing upstream, not to advance is to fall back".split(',')
+          var content = result.data.content
+          var both = sub.unshift(content)
+          var typed = new Typed('#subtitle', {
+            strings: sub,
+            startDelay: 300,
+            typeSpeed: 150,
+            loop: true,
+            backSpeed: 50,
+          })
+        } else {
+          document.getElementById('subtitle').innerHTML = result.data.content
+        }
+      })
+    }
+  )
+}
+window.addEventListener('load', subtitleType)
+</script><script src="/js/calendar.js"></script><script src="/js/languages.js"></script><script src="/js/chocolate.js"></script><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":120,"height":260},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body></html>
